@@ -1,5 +1,5 @@
 import './App.css'
-import {BrowserRouter, Routes, Route, Link} from "react-router-dom"
+import {HashRouter, Routes, Route, Link} from "react-router-dom"
 import PageOne from "./components/pageone.tsx";
 import {useState, useEffect} from "react";
 import axios from 'axios'
@@ -17,7 +17,7 @@ function App() {
 
     return (
         <>
-            <BrowserRouter>
+            <HashRouter>
                 <div className="header">
                     <Link to={"/"}>
                         SPACE X monitoring
@@ -28,7 +28,7 @@ function App() {
                     <Route path="/" element={<HomePage />}></Route>
                     <Route path="/pageone" element={<PageOne />}></Route>
                 </Routes>
-            </BrowserRouter>
+            </HashRouter>
         </>
     )
 }
