@@ -1,3 +1,3 @@
-const apiUrl = "https://api.spacexdata.com/v3/launches"
+const apiUrl = "https://jsonplaceholder.typicode.com/posts"
 
 export default apiUrl;

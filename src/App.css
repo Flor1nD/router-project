@@ -1,61 +1,160 @@
-body {
-    background-color: #555555;
+@media (min-width: 1024px) {
+    body {
+        background-color: #555555;
+    }
+
+    .header {
+        background-color: #2e2e2e;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .headerLink {
+        border-radius: 10px;
+        background-color: #2e2e2e;
+        text-decoration: none;
+        color: white;
+    }
+    .container a {
+        padding: 10px;
+        border-radius: 10px;
+        background-color: #2e2e2e;
+        text-decoration: none;
+        color: white;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container {
+        margin-top: 70px;
+        margin-bottom: 70px;
+        padding: 50px;
+        border: 1px solid black;
+        border-radius: 25px;
+        background: linear-gradient(to bottom right, #1e1e1e, #505050);
+        color: white;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container input {
+        border: 0;
+        border-radius: 10px;
+        padding: 15px;
+        margin: 10px;
+        width: fit-content;
+        background: linear-gradient(to bottom right, #121212, #2c2c2c);
+        color: white;
+    }
+    .container input:focus {
+        outline: none;
+    }
+
+    .container button {
+        border: 0;
+        border-radius: 10px;
+        padding: 15px;
+        margin: 10px;
+        width: fit-content;
+        background: linear-gradient(to bottom right, #121212, #2c2c2c);
+        color: white;
+    }
+
+    .container button:active {
+        background: linear-gradient(to bottom right, #292929, #3c3c3c);
+    }
+
+    .content {
+        width: 100%;
+    }
+
+
+    .todo-block {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
 }
 
-.header {
-    background-color: #2e2e2e;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
+@media (max-width: 1024px) {
+    body {
+        background-color: #555555;
+    }
 
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
+    .header {
+        background-color: #2e2e2e;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
 
-a {
-    border-radius: 10px;
-    background-color: #2e2e2e;
-    text-decoration: none;
-    color: white;
-}
-.container a {
-    padding: 10px;
-    border-radius: 10px;
-    background-color: #2e2e2e;
-    text-decoration: none;
-    color: white;
-}
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
 
-.content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+    a {
+        border-radius: 10px;
+        background-color: #2e2e2e;
+        text-decoration: none;
+        color: white;
+    }
+    .container a {
+        padding: 10px;
+        border-radius: 10px;
+        background-color: #2e2e2e;
+        text-decoration: none;
+        color: white;
+    }
 
-.container {
-    margin-top: 70px;
-    padding: 50px;
-    border: 1px solid black;
-    border-radius: 25px;
-    background: linear-gradient(to bottom right, #1e1e1e, #505050);
-    color: white;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-.content {
-    width: 100%;
-}
+    .container {
+        margin-top: 70px;
+        margin-bottom: 70px;
+        padding: 50px;
+        border: 1px solid black;
+        border-radius: 25px;
+        background: linear-gradient(to bottom right, #1e1e1e, #505050);
+        color: white;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .content {
+        width: 100%;
+    }
 
 
-.todo-block {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
+    .todo-block {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
 }

@@ -6,10 +6,11 @@ import axios from 'axios'
 import apiUrl from "./components/api.tsx";
 
 
-interface Flights {
-    flight_number: number;
-    mission_name: string;
-    launch_year: string | undefined;
+interface Posts {
+    userId: number;
+    id: number;
+    title: string;
+    body: string;
 }
 
 function App() {
@@ -19,8 +20,8 @@ function App() {
         <>
             <HashRouter>
                 <div className="header">
-                    <Link to={"/"}>
-                        SPACE X monitoring
+                    <Link to={"/"} className={"headerLink"}>
+                        Posts monitoring
                     </Link>
                 </div>
 
@@ -34,35 +35,35 @@ function App() {
 }
 
 function HomePage() {
-    const [flights, setFlights] = useState<Flights[]>([]);
+    const [posts, setPosts] = useState<Posts[]>([]);
 
     useEffect(() => {
         axios.get(apiUrl).then((response) => {
-            setFlights(response.data);
+            setPosts(response.data);
         })
-    }, [setFlights]);
+    }, [setPosts]);
 
     return (
         <>
             <div className="content">
                 <div className="container">
                     <h1>
-                        Список полётов
+                        Список постов
                     </h1>
 
                     <div className="content">
-                        {flights.slice(0, flights.length).map((flight) => (
-                            <div key={flight.flight_number} className="todo-block">
-
-                                <h2>{flight.mission_name}</h2>
-                                <p>{flight.launch_year}</p>
+                        {posts.slice(0, posts.length).map((post) => (
+                            <div key={post.id} className="todo-block">
+                                <p style={{maxWidth: "30%"}}>{post.userId}</p>
+                                <h2 style={{maxWidth: "30%"}}>{post.title}</h2>
+                                <p style={{maxWidth: "30%"}}>{post.body}</p>
 
                             </div>
                         ))}
                     </div>
 
-                    <Link to={"/pageone"}>
-                        Добавить полёт
+                    <Link to={"/pageone"} >
+                        Добавить пост
                     </Link>
 
 

@@ -2,35 +2,42 @@ import '../App.css'
 import {useState, useEffect} from 'react'
 import axios from 'axios'
 import apiUrl from "./api.tsx";
+import {Link} from "react-router-dom";
 
-interface Flights {
-    flight_number: number;
-    mission_name: string;
-    launch_year: string | undefined;
+interface Posts {
+    userId: number;
+    id: number;
+    title: string;
+    body: string;
 }
 
 function PageOne() {
-    const [flights, setFlights] = useState<Flights[]>([]);
-    const [launch_year, setLaunchYear] = useState('');
-    const [mission_name, setMissionName] = useState('');
+    const [posts, setPosts] = useState<Posts[]>([]);
+    const [userId, setUserId] = useState<number>(0);
+    const [title, setTitle] = useState<string>('');
+    const [body, setBody] = useState<string>('');
 
 
     useEffect(() => {
         axios.get(apiUrl).then((response) => {
-            setFlights(response.data);
+            setPosts(response.data);
         })
-    }, [setFlights]);
+    }, [setPosts]);
 
-    const sendToDo = async (flight_number: number, mission_name: string, launch_year: string) => {
+    const sendToDo = async (userId: number, id: number, title: string, body: string) => {
         await axios.post(apiUrl, {
-            flight_number: flight_number,
-            mission_name: mission_name,
-            launch_year: launch_year
+            userId: userId,
+            id: id,
+            title: title,
+            body: body,
         })
 
         // Очищаем поля ввода
-        setLaunchYear('');
-        setMissionName('');
+        setUserId(0)
+        setTitle('');
+        setBody('');
+
+        console.log("Пост отправлен");
     }
 
 
@@ -39,12 +46,13 @@ function PageOne() {
 
             <div className="content">
                 <div className="container">
-
-                    <input type="text" value={mission_name} onChange={(e) => setMissionName(e.target.value)} />
+                    <input type="number" value={userId} onChange={(e) => setUserId(e.target.valueAsNumber)} />
                     <br/>
-                    <input type="text" value={launch_year} onChange={(e) => setLaunchYear(e.target.value)} />
+                    <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
                     <br/>
-                    <button onClick={() => sendToDo(flights.length, mission_name, launch_year)}>Добавить пост</button>
+                    <input type="text" value={body} onChange={(e) => setBody(e.target.value)} />
+                    <br/>
+                    <Link to={"/"}><button onClick={() => sendToDo(userId, posts.length, title, body)}>Добавить пост</button></Link>
 
                 </div>
             </div>
