@@ -43,6 +43,22 @@ function HomePage() {
         })
     }, [setPosts]);
 
+
+
+    const deletePost = async (id: number)=>  {
+        await axios.delete(apiUrl  + `?id=${id}`).then((response) => {
+            if (response.status === 200) {
+                setPosts(response.data);
+                console.log(`delete : ${id}`)
+            }
+            else {
+                console.log(response)
+            }
+        })
+
+
+    }
+
     return (
         <>
             <div className="content">
@@ -54,10 +70,10 @@ function HomePage() {
                     <div className="content">
                         {posts.slice(0, posts.length).map((post) => (
                             <div key={post.id} className="todo-block">
-                                <p style={{maxWidth: "30%"}}>{post.userId}</p>
+                                <p style={{maxWidth: "30%"}}>{post.id}</p>
                                 <h2 style={{maxWidth: "30%"}}>{post.title}</h2>
                                 <p style={{maxWidth: "30%"}}>{post.body}</p>
-
+                                <button onClick={() => deletePost(post.id)}>Удалить</button>
                             </div>
                         ))}
                     </div>
