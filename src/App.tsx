@@ -5,7 +5,6 @@ import {useState, useEffect} from "react";
 import axios from 'axios'
 import apiUrl from "./components/api.tsx";
 
-
 interface Posts {
     userId: number;
     id: number;
@@ -71,7 +70,7 @@ function HomePage() {
                         {posts.slice(0, posts.length).map((post) => (
                             <div key={post.id} className="todo-block">
                                 <p className={"todo-item"}>{post.id}</p>
-                                <img src="components/image1.png" alt="Картинка" loading={"lazy"}/>
+                                <img src="https://opis-cdn.tinkoffjournal.ru/mercury/how-to-pay-for-telegram-post-01.okneh0..png" alt="Картинка" loading={"lazy"} style={{width:'250px', height:'250px'}} />
                                 <h2 className={"todo-item"}>{post.title}</h2>
                                 <p className={"todo-item"}>{post.body}</p>
                                 <button className={"todo-item"} onClick={() => deletePost(post.id)}>Удалить</button>
