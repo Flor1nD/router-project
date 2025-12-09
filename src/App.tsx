@@ -70,10 +70,11 @@ function HomePage() {
                     <div className="content">
                         {posts.slice(0, posts.length).map((post) => (
                             <div key={post.id} className="todo-block">
-                                <p style={{maxWidth: "30%"}}>{post.id}</p>
-                                <h2 style={{maxWidth: "30%"}}>{post.title}</h2>
-                                <p style={{maxWidth: "30%"}}>{post.body}</p>
-                                <button onClick={() => deletePost(post.id)}>Удалить</button>
+                                <p className={"todo-item"}>{post.id}</p>
+                                <img src="components/image1.png" alt="Картинка" loading={"lazy"}/>
+                                <h2 className={"todo-item"}>{post.title}</h2>
+                                <p className={"todo-item"}>{post.body}</p>
+                                <button className={"todo-item"} onClick={() => deletePost(post.id)}>Удалить</button>
                             </div>
                         ))}
                     </div>
